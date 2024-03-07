@@ -28,4 +28,8 @@ export class TodoListComponent {
   toggleDoneTask(task: Task) {
     task.done = !task.done;
   }
+
+  removeTask(id: number) {
+    this.tasks = this.tasks.filter((task) => task.id !== id);
+  }
 }

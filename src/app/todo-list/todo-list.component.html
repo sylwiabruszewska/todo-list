@@ -10,6 +10,7 @@
       *ngFor="let task of tasks"
       [task]="task"
       (toggleDone)="toggleDoneTask(task)"
+      (remove)="removeTask(task.id)"
     ></app-todo-item>
   </ul>
 </div>

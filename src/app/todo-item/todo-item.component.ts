@@ -14,8 +14,13 @@ export interface Task {
 export class TodoItemComponent {
   @Input() task!: Task;
   @Output() toggleDone = new EventEmitter<Task>();
+  @Output() remove = new EventEmitter<number>();
 
   toggleDoneTask() {
     this.toggleDone.emit(this.task);
+  }
+
+  removeTask() {
+    this.remove.emit(this.task.id);
   }
 }
