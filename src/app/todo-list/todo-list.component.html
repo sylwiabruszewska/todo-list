@@ -4,7 +4,12 @@
     <input [(ngModel)]="newTaskText" placeholder="Add new task" />
     <button (click)="addTask()">Add</button>
   </div>
+
   <ul class="todo-list">
-    <app-todo-item *ngFor="let task of tasks" [task]="task"></app-todo-item>
+    <app-todo-item
+      *ngFor="let task of tasks"
+      [task]="task"
+      (toggleDone)="toggleDoneTask(task)"
+    ></app-todo-item>
   </ul>
 </div>

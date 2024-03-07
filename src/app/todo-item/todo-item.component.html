@@ -3,7 +3,10 @@
     type="checkbox"
     id="task_{{ task.id }}"
     name="task_{{ task.id }}"
-    value="{{ task.text }}"
+    [checked]="task.done"
+    (change)="toggleDoneTask()"
   />
-  <label for="task_{{ task.id }}">{{ task.text }}</label>
+  <label for="task_{{ task.id }}" [class.done]="task.done">{{
+    task.text
+  }}</label>
 </li>

@@ -24,4 +24,8 @@ export class TodoListComponent {
     this.tasks.push(newTask);
     this.newTaskText = '';
   }
+
+  toggleDoneTask(task: Task) {
+    task.done = !task.done;
+  }
 }

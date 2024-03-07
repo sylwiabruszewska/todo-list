@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 export interface Task {
   id: number;
@@ -13,4 +13,9 @@ export interface Task {
 })
 export class TodoItemComponent {
   @Input() task!: Task;
+  @Output() toggleDone = new EventEmitter<Task>();
+
+  toggleDoneTask() {
+    this.toggleDone.emit(this.task);
+  }
 }
