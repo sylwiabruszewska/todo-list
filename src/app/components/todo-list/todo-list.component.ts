@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+
 import { Task } from '../todo-item/todo-item.component';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -9,6 +11,12 @@ import { Task } from '../todo-item/todo-item.component';
 export class TodoListComponent {
   tasks: Task[] = [];
   newTaskText = '';
+
+  constructor(private dataService: DataService) {}
+
+  ngOnInit() {
+    this.tasks = this.dataService.getTasks();
+  }
 
   addTask() {
     if (this.newTaskText.trim() === '') {
