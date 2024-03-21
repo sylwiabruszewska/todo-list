@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { Task } from '../todo-item/todo-item.component';
 import { DataService } from 'src/app/services/data.service';
 
@@ -15,6 +14,10 @@ export class TodoListComponent {
   constructor(private dataService: DataService) {}
 
   ngOnInit() {
+    this.refreshTasks();
+  }
+
+  private refreshTasks() {
     this.tasks = this.dataService.getTasks();
   }
 
@@ -29,15 +32,18 @@ export class TodoListComponent {
       done: false,
     };
 
-    this.tasks.push(newTask);
+    this.dataService.addTask(newTask);
+    this.refreshTasks();
     this.newTaskText = '';
   }
 
   toggleDoneTask(task: Task) {
-    task.done = !task.done;
+    this.dataService.toggleDoneTask(task);
+    this.refreshTasks();
   }
 
   removeTask(id: number) {
-    this.tasks = this.tasks.filter((task) => task.id !== id);
+    this.dataService.removeTask(id);
+    this.refreshTasks();
   }
 }
