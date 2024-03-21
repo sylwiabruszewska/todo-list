@@ -1,10 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-
-export interface Task {
-  id: number;
-  text: string;
-  done: boolean;
-}
+import { Task } from 'src/app/models/task.model';
 
 @Component({
   selector: 'app-todo-item',
