@@ -9,3 +9,16 @@ body {
   background-blend-mode: screen;
   min-height: 100vh;
 }
+
+// define mixins
+@mixin tablet {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}
