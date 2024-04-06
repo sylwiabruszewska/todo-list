@@ -6,9 +6,9 @@ import { Task } from '../models/task.model';
 })
 export class DataService {
   private tasks: Task[] = [
-    { id: 1, text: 'Task 1', done: false },
-    { id: 2, text: 'Task 2', done: true },
-    { id: 3, text: 'Task 3', done: false },
+    { id: 1, text: 'Task 1', done: false, category: 1 },
+    { id: 2, text: 'Task 2', done: true, category: 2 },
+    { id: 3, text: 'Task 3', done: false, category: 3 },
   ];
 
   constructor() {
