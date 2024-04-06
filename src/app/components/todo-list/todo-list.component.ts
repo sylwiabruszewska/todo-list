@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Task } from 'src/app/models/task.model';
 import { DataService } from 'src/app/services/data.service';
+import { CategoryService } from 'src/app/services/categories.service';
+import { Category } from 'src/app/models/category.model';
 
 @Component({
   selector: 'app-todo-list',
@@ -10,11 +12,21 @@ import { DataService } from 'src/app/services/data.service';
 export class TodoListComponent {
   tasks: Task[] = [];
   newTaskText = '';
+  categories: Category[] = [];
+  newTaskCategory?: number;
 
-  constructor(private dataService: DataService) {}
+  constructor(
+    private dataService: DataService,
+    private categoryService: CategoryService
+  ) {}
 
   ngOnInit() {
     this.refreshTasks();
+    this.categories = this.categoryService.getCategories();
+  }
+
+  onCategoryChange() {
+    console.log('Wybrano kategorię:', this.newTaskCategory);
   }
 
   private refreshTasks() {
@@ -26,15 +38,31 @@ export class TodoListComponent {
       return;
     }
 
+    if (!this.newTaskCategory) {
+      console.error('Nie wybrano kategorii');
+      return;
+    }
+
+    const selectedCategory = this.categories.filter(
+      (cat) => cat.id === this.newTaskCategory
+    );
+
+    if (!selectedCategory) {
+      console.error('Wybrana kategoria nie istnieje');
+      return;
+    }
+
     const newTask: Task = {
       id: this.tasks.length + 1,
       text: this.newTaskText,
       done: false,
+      category: this.newTaskCategory || 1,
     };
 
     this.dataService.addTask(newTask);
-    this.refreshTasks();
+
     this.newTaskText = '';
+    this.newTaskCategory = 1;
   }
 
   toggleDoneTask(task: Task) {

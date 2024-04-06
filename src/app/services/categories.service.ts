@@ -4,11 +4,11 @@ import { Category } from '../models/category.model';
 @Injectable({
   providedIn: 'root',
 })
-export class CategoriesService {
+export class CategoryService {
   private categories: Category[] = [
     {
       id: 1,
-      name: 'Work',
+      name: 'General',
     },
     {
       id: 2,
@@ -20,7 +20,7 @@ export class CategoriesService {
     },
     {
       id: 4,
-      name: 'General',
+      name: 'Work',
     },
     {
       id: 5,
@@ -29,17 +29,21 @@ export class CategoriesService {
   ];
 
   constructor() {}
-}
-
-@Injectable({
-  providedIn: 'root',
-})
-export class CategoryService {
-  private categories: Category[] = [];
-
-  constructor() {}
 
   getCategories(): Category[] {
     return this.categories;
+  }
+
+  getCategoryName(categoryId: number): string {
+    // console.log('categoryId:', categoryId);
+
+    const category = this.categories.find(
+      (category) => category.id === Number(categoryId)
+    );
+
+    // console.log('categories:', this.categories);
+    // console.log('category:', category);
+
+    return category ? category.name.toLowerCase() : '';
   }
 }

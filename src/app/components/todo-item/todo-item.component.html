@@ -1,4 +1,4 @@
-<li>
+<li [ngClass]="getCategoryName(task.category)">
   <input
     type="checkbox"
     id="task_{{ task.id }}"

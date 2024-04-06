@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from 'src/app/models/task.model';
+import { CategoryService } from 'src/app/services/categories.service';
 
 @Component({
   selector: 'app-todo-item',
@@ -11,11 +12,17 @@ export class TodoItemComponent {
   @Output() toggleDone = new EventEmitter<Task>();
   @Output() remove = new EventEmitter<number>();
 
+  constructor(private categoryService: CategoryService) {}
+
   toggleDoneTask() {
     this.toggleDone.emit(this.task);
   }
 
   removeTask() {
     this.remove.emit(this.task.id);
+  }
+
+  getCategoryName(categoryId: number): string {
+    return this.categoryService.getCategoryName(categoryId);
   }
 }
