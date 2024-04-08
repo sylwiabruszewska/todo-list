@@ -2,6 +2,7 @@
   <h2>Todo List</h2>
   <div>
     <input [(ngModel)]="newTaskText" placeholder="Add new task" />
+    <span>Choose category: </span>
     <select [(ngModel)]="newTaskCategory" name="category">
       <option *ngFor="let category of categories" [value]="category.id">
         {{ category.name }}
