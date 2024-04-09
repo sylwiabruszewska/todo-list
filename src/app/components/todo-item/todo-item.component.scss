@@ -5,9 +5,11 @@
 li {
   display: flex;
   align-items: flex-start;
+  margin-bottom: 4px;
+  padding: 6px;
 }
 
-button {
+app-button {
   margin-left: auto;
 }
 
