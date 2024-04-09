@@ -9,5 +9,6 @@
   <label for="task_{{ task.id }}" [class.done]="task.done">{{
     task.text
   }}</label>
-  <button (click)="removeTask()">Remove</button>
+
+  <app-button (clicked)="removeTask()">Remove</app-button>
 </li>
