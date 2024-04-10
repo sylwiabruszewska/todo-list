@@ -5,12 +5,13 @@
 li {
   display: flex;
   align-items: flex-start;
+  gap: 6px;
   margin-bottom: 4px;
   padding: 6px;
-}
 
-app-button {
-  margin-left: auto;
+  label {
+    flex: 1;
+  }
 }
 
 .general {
