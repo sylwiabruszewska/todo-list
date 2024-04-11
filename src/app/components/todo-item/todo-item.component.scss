@@ -8,30 +8,43 @@ li {
   gap: 6px;
   margin-bottom: 4px;
   padding: 6px;
+  padding-left: 15px;
   width: 100%;
+  background-color: #fff;
+  position: relative;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &.general::before {
+    background-color: #ffb6c1;
+  }
+
+  &.shopping::before {
+    background-color: #fffac8;
+  }
+
+  &.home::before {
+    background-color: #aec6cf;
+  }
+
+  &.work::before {
+    background-color: #ffcc99;
+  }
+
+  &.hobby::before {
+    background-color: #d8bfd8;
+  }
 
   label {
     flex-grow: 1;
     white-space: pre-wrap;
   }
-}
-
-.general {
-  background-color: pink;
-}
-
-.shopping {
-  background-color: yellow;
-}
-
-.home {
-  background-color: lightblue;
-}
-
-.work {
-  background-color: navajowhite;
-}
-
-.hobby {
-  background-color: violet;
 }
