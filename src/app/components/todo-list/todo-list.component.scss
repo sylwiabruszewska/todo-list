@@ -3,7 +3,6 @@
 .todo-list {
   list-style-type: none;
   padding: 0;
-  text-align: left;
   width: 100%;
 }
 
@@ -20,12 +19,18 @@
 
   @include desktop {
     min-height: 50vh;
-    width: 500px;
+    width: 600px;
   }
+}
+
+.panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
 }
 
 input,
 select {
   padding: 6px;
-  margin-right: 20px;
 }
