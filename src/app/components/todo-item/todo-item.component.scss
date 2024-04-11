@@ -8,9 +8,11 @@ li {
   gap: 6px;
   margin-bottom: 4px;
   padding: 6px;
+  width: 100%;
 
   label {
-    flex: 1;
+    flex-grow: 1;
+    white-space: pre-wrap;
   }
 }
 
