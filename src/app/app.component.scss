@@ -1,5 +1,11 @@
+@import "../styles.scss";
+
 .main-container {
-  display: flex;
-  justify-content: center;
+  margin: 0 auto;
   padding: 40px 20px;
+  width: 100vw;
+
+  @include desktop {
+    width: 600px;
+  }
 }
