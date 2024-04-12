@@ -31,7 +31,7 @@ export class DataService {
   }
 
   addTask(newTask: Task) {
-    this.tasks.push(newTask);
+    this.tasks.unshift(newTask);
     this.saveTasksToLocalStorage();
   }
 
