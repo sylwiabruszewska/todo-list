@@ -9,20 +9,25 @@ import { CategoryService } from 'src/app/services/categories.service';
 })
 export class TodoItemComponent {
   @Input() task!: Task;
+  @Input() categoryName!: string;
+
   @Output() toggleDone = new EventEmitter<Task>();
   @Output() remove = new EventEmitter<string>();
 
   constructor(private categoryService: CategoryService) {}
 
+  ngOnInit() {
+    this.categoryName = this.categoryService.getCategoryName(
+      this.task.category
+    );
+  }
+
   toggleDoneTask() {
     this.toggleDone.emit(this.task);
+    console.log(this.categoryName);
   }
 
   removeTask() {
     this.remove.emit(this.task.id);
-  }
-
-  getCategoryName(categoryId: number): string {
-    return this.categoryService.getCategoryName(categoryId);
   }
 }
