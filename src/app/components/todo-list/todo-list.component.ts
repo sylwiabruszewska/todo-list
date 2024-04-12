@@ -4,6 +4,8 @@ import { DataService } from 'src/app/services/data.service';
 import { CategoryService } from 'src/app/services/categories.service';
 import { Category } from 'src/app/models/category.model';
 
+import { v4 as uuidv4 } from 'uuid';
+
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
@@ -53,7 +55,7 @@ export class TodoListComponent {
     }
 
     const newTask: Task = {
-      id: this.tasks.length + 1,
+      id: uuidv4(),
       text: this.newTaskText,
       done: false,
       category: this.newTaskCategory || 1,
@@ -70,7 +72,7 @@ export class TodoListComponent {
     this.refreshTasks();
   }
 
-  removeTask(id: number) {
+  removeTask(id: string) {
     this.dataService.removeTask(id);
     this.refreshTasks();
   }
