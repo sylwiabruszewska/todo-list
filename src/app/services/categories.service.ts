@@ -35,14 +35,9 @@ export class CategoryService {
   }
 
   getCategoryName(categoryId: number): string {
-    console.log('categoryId:', categoryId);
-
     const category = this.categories.find(
       (category) => category.id === Number(categoryId)
     );
-
-    // console.log('categories:', this.categories);
-    // console.log('category:', category);
 
     return category ? category.name.toLowerCase() : '';
   }
