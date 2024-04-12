@@ -27,21 +27,12 @@ export class TodoListComponent {
     this.categories = this.categoryService.getCategories();
   }
 
-  onCategoryChange() {
-    console.log('Wybrano kategorię:', this.newTaskCategory);
-  }
-
   private refreshTasks() {
     this.tasks = this.dataService.getTasks();
   }
 
   addTask() {
     if (this.newTaskText.trim() === '') {
-      return;
-    }
-
-    if (!this.newTaskCategory) {
-      console.error('Nie wybrano kategorii');
       return;
     }
 
