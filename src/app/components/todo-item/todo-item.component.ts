@@ -24,7 +24,6 @@ export class TodoItemComponent {
 
   toggleDoneTask() {
     this.toggleDone.emit(this.task);
-    console.log(this.categoryName);
   }
 
   removeTask() {
