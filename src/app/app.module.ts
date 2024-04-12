@@ -8,6 +8,7 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { ButtonComponent } from './components/button/button.component';
 import { IconButtonComponent } from './components/icon-button/icon-button.component';
+import { PanelComponent } from './components/panel/panel.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { IconButtonComponent } from './components/icon-button/icon-button.compon
     TodoItemComponent,
     ButtonComponent,
     IconButtonComponent,
+    PanelComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

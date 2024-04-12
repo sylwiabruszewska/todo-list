@@ -1,0 +1,19 @@
+@import "../../../styles.scss";
+
+.container {
+  padding: 20px 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
+
+input,
+select {
+  padding: 6px;
+}

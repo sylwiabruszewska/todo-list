@@ -1,20 +1,3 @@
-<div class="container">
-  <h2>Todo List</h2>
-  <div class="panel">
-    <input [(ngModel)]="newTaskText" placeholder="Add new task" />
-    <div>
-      <span>Choose category: </span>
-      <select [(ngModel)]="newTaskCategory" name="category">
-        <option *ngFor="let category of categories" [value]="category.id">
-          {{ category.name }}
-        </option>
-      </select>
-    </div>
-
-    <app-button (click)="addTask()">Add</app-button>
-  </div>
-</div>
-
 <ul class="todo-list">
   <app-todo-item
     *ngFor="let task of tasks"
