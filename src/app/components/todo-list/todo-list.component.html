@@ -13,13 +13,13 @@
 
     <app-button (click)="addTask()">Add</app-button>
   </div>
-
-  <ul class="todo-list">
-    <app-todo-item
-      *ngFor="let task of tasks"
-      [task]="task"
-      (toggleDone)="toggleDoneTask(task)"
-      (remove)="removeTask(task.id)"
-    ></app-todo-item>
-  </ul>
 </div>
+
+<ul class="todo-list">
+  <app-todo-item
+    *ngFor="let task of tasks"
+    [task]="task"
+    (toggleDone)="toggleDoneTask(task)"
+    (remove)="removeTask(task.id)"
+  ></app-todo-item>
+</ul>
