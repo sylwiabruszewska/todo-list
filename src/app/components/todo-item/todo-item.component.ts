@@ -10,7 +10,7 @@ import { CategoryService } from 'src/app/services/categories.service';
 export class TodoItemComponent {
   @Input() task!: Task;
   @Output() toggleDone = new EventEmitter<Task>();
-  @Output() remove = new EventEmitter<number>();
+  @Output() remove = new EventEmitter<string>();
 
   constructor(private categoryService: CategoryService) {}
 
